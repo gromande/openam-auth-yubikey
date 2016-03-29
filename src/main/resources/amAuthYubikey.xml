@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ServicesConfiguration
+PUBLIC "=//iPlanet//Service Management Services (SMS) 1.0 DTD//EN"
+"jar://com/sun/identity/sm/sms.dtd">
+
+<ServicesConfiguration>
+    <Service name="sunAMAuthYubikeyService" version="1.0">
+        <Schema
+            serviceHierarchy="/DSAMEConfig/authentication/sunAMAuthYubikeyService"
+            i18nFileName="amAuthYubikey"
+            revisionNumber="1"
+            i18nKey="sunAMAuthYubikeyServiceDescription">
+
+            <Organization>
+                <AttributeSchema name="sunAMAuthYubikeyAuthLevel"
+                                 type="single"
+                                 syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                                 i18nKey="a500">
+                    <DefaultValues>
+                        <Value>0</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+                <AttributeSchema name="sunAMAuthYubikeyClientID"
+                                 type="single"
+                                 syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                                 i18nKey="a101">
+                </AttributeSchema>
+                <AttributeSchema name="sunAMAuthYubikeyAPIKey"
+                                 type="single"
+                                 syntax="password"
+                                 i18nKey="a102">
+                </AttributeSchema>
+                <AttributeSchema name="sunAMAuthYubikeyPublicIdAttributeName"
+                                 type="single"
+                                 syntax="string"
+                                 i18nKey="a103">
+                </AttributeSchema>
+                <AttributeSchema name="sunAMAuthYubikeyRegistrationEnabled"
+                                 type="single"
+                                 syntax="boolean"
+                                 i18nKey="a104">
+                    <BooleanValues>
+                        <BooleanTrueValue i18nKey="i18nTrue">true</BooleanTrueValue>
+                        <BooleanFalseValue i18nKey="i18nFalse">false</BooleanFalseValue>
+                    </BooleanValues>
+                    <DefaultValues>
+                        <Value>false</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+                <AttributeSchema name="sunAMAuthYubikeyWSApiUrls"
+                                 type="list"
+                                 syntax="string"
+                                 i18nKey="a105">
+                    <DefaultValues>
+                        <Value>https://api.yubico.com/wsapi/2.0/verify</Value>
+                        <Value>https://api2.yubico.com/wsapi/2.0/verify</Value>
+                        <Value>https://api3.yubico.com/wsapi/2.0/verify</Value>
+                        <Value>https://api4.yubico.com/wsapi/2.0/verify</Value>
+                        <Value>https://api5.yubico.com/wsapi/2.0/verify</Value>
+                    </DefaultValues>
+                </AttributeSchema>
+                <SubSchema name="serverconfig" inheritance="multiple">
+                    <AttributeSchema name="sunAMAuthYubikeyAuthLevel"
+                                     type="single"
+                                     syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                                     i18nKey="a500">
+                        <DefaultValues>
+                            <Value>0</Value>
+                        </DefaultValues>
+                    </AttributeSchema>
+                </SubSchema>
+            </Organization>
+        </Schema>
+        
+        <Configuration>
+            <OrganizationConfiguration name="/">
+                <AttributeValuePair>
+                    <Attribute name="sunAMAuthYubikeyAuthLevel"/>
+                    <Value>0</Value>
+                </AttributeValuePair>
+            </OrganizationConfiguration>
+        </Configuration>
+    </Service>
+</ServicesConfiguration>
