@@ -15,19 +15,20 @@ Run the following command:
 
 mvn clean package
 
-You can find the distribution zip file inside the target folder
+You can find the distribution zip file (openam-auth-yubikey-dist.zip) inside the target folder
 
 Installation:
 
 * Copy the distribution zip file to your OpenAM server and extract contents to a directory of your choice.
+
 * Copy jar files (openam-auth-yubikey/lib/) to WEB-INF/lib
-    cp openam-auth-yubikey/lib/ $OPENAM_ROOT/WEB-INF/lib
+    $ cp openam-auth-yubikey/lib/ $OPENAM_ROOT/WEB-INF/lib
     
 * Copy properties file:
-    cp openam-auth-yubikey/conf/amAuthYubikey.properties $OPENAM_ROOT/WEB-INF/classes
+    $ cp openam-auth-yubikey/config/amAuthYubikey.properties $OPENAM_ROOT/WEB-INF/classes
 
 * Copy module descriptor:
-    cp openam-auth-yubikey/conf/Yubikey.xml $OPENAM_ROOT/config/auth/default
+    $ cp openam-auth-yubikey/config/Yubikey.xml $OPENAM_ROOT/config/auth/default
     
 * Register service
 

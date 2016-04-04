@@ -15,4 +15,7 @@
             </OptionValues>
         </ConfirmationCallback>
     </Callbacks>
+    <Callbacks length="0" order="2" timeout="120" 
+        header="Internal error. Please contact service desk to reset your password" 
+        error="true" />
 </ModuleProperties>

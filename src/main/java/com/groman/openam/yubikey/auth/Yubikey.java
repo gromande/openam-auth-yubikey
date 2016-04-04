@@ -21,6 +21,10 @@ public class Yubikey extends AMLoginModule {
     private static final String MODULE_NAME = "Yubikey";
     private static Debug debug = Debug.getInstance(MODULE_NAME);
     
+    //Auth states
+    private static final int LOGIN_START = 1;
+    private static final int INTERNAL_ERROR = 2;
+    
     private Map sharedState;
     private ResourceBundle bundle;
     private String UUID = null;
@@ -71,9 +75,13 @@ public class Yubikey extends AMLoginModule {
 
     @Override
     public int process(Callback[] cbs, int currentState) throws LoginException {
+        if (debug.messageEnabled()) {
+            debug.message("process(): current state: " + currentState);
+        }
         if (userName == null || userName.length() == 0) {
             throw new AuthLoginException(BUNDLE_NAME, "missingUserId", null);
         }
+        debug.message("process(): got username: " + userName);
         throw new InvalidPasswordException(BUNDLE_NAME, "invalidOTP", null);
     }
 

@@ -1,0 +1,30 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>dist</id>
+  <baseDirectory>/openam-auth-yubikey</baseDirectory>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>${project.basedir}/src/main/resources</directory>
+      <outputDirectory>/config</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <moduleSets>
+    <moduleSet>
+    
+      <!-- Enable access to all projects in the current multimodule build! -->
+      <useAllReactorProjects>true</useAllReactorProjects>
+      
+      <!-- Now, select which projects to include in this module-set. -->
+      <includes>
+        <include>com.groman:openam-auth-yubikey</include>
+      </includes>
+      <binaries>
+        <outputDirectory>lib</outputDirectory>
+        <unpack>false</unpack>
+      </binaries>
+    </moduleSet>
+  </moduleSets>
+</assembly>
